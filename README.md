@@ -1,11 +1,11 @@
-# Parrilla
+# :bento: Parrilla
  
 Projeto **Parrilla** – uma aplicação web desenvolvida para gerenciar produtos, cardápio e atendimento de uma churrascaria/steakhouse online.  
 O objetivo é oferecer uma experiência simples, rápida e responsiva para clientes e administradores.
  
 ---
  
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
  
 - **Frontend:** HTML5, CSS3, JavaScript  
 - **Backend:** Node.js / PHP   
@@ -15,7 +15,7 @@ O objetivo é oferecer uma experiência simples, rápida e responsiva para clien
  
 ---
  
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 chuleta-quente/
 │── public/ # Arquivos públicos (imagens, ícones, etc.)
 │── src/ # Código-fonte principal
