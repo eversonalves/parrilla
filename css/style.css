@@ -1,6 +1,18 @@
 @charset "utf8";
  
+
+/* Imagem de fundo para a pagina */
+
 .fundo-fixo {
     background: url(../images/Logo_parrilla/fundo-restaurante.jpg) no-repeat fixed center;
     -webkit-background-size: cover;
+}
+
+/* margem para o container main */
+
+main{
+    padding-top: 80px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
