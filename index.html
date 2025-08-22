@@ -12,21 +12,86 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
 
-    <!-- <link rel="stylesheet" href="/css e js V3.3.7/bootstrap.min.css"/> -->
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+    <link rel="stylesheet" href="css/style.css"/>
     
     <script src="js/bootstrap.min.js" defer></script>
-
-    <!-- <script src="/css e js V3.3.7/bootstrap.min.js" defer></script> -->
 
     <title>Parrilla</title>
   </head>
   <body class="fundo-fixo">
+    <!-- Area de menu --- Um dia isso vai virar um arquivo externo -->
 
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
-    
+        <div class="container-fluid">
+
+          <a href="index.html" class="navbar-brand">
+            <img src="/images/Logo_parrilla/Logo_escuro.png" alt="Logo parrila" width="190">
+          </a>
+
+          <button 
+           class="navbar-toggler" 
+           type="button" 
+           data-bs-toggle="collapse" 
+           data-bs-target="#menuprincipal"
+           aria-controls="menuprincipal"
+           aria-expanded="false"
+           aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          
+          <div class="collapse navbar-collapse" id="menuprincipal">
+            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+
+              <li class="nav-item">
+               <a href="index.html" class="nav-link active" aria-current="page">
+               <i class="bi bi-house-door-fill"></i></a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Produtos</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Tipos
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a href="#" class="dropdown-item">Carnes</a></li>
+                  <li><a href="#" class="dropdown-item">Bebidas</a></li>
+                  <li><a href="#" class="dropdown-item">Sobremesa</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="#contato" class="nav-link">Contato</a>
+              </li>
+
+              <li class="nav-item">
+                <form class="d-flex" role="search">
+                  <input type="search" class="form-control me-2" placeholder="Buscar produto" aria-label="search" required />
+                  <button class="btn btn-outline-light">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </form>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-person-fill"></i>&nbsp;ADMIN/CLIENTE
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="" class="nav-link"></a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+
   </body>
 </html>
