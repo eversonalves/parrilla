@@ -16,13 +16,22 @@ O objetivo é oferecer uma experiência simples, rápida e responsiva para clien
 ---
  
 ## 📂 Estrutura do Projeto
+
 chuleta-quente/
 │── public/ # Arquivos públicos (imagens, ícones, etc.)
+
 │── src/ # Código-fonte principal
+
 │ ├── components/ # Componentes reutilizáveis
+
 │ ├── pages/ # Páginas do site
+
 │ └── services/ # Conexão com API / Banco de dados
+
 │── tests/ # Testes unitários e de integração
+
 │── .gitignore # Arquivos ignorados pelo Git
+
 │── package.json # Dependências e scripts do projeto
+
 │── README.md # Documentação do projeto
