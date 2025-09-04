@@ -18,6 +18,7 @@ O objetivo é oferecer uma experiência simples, rápida e responsiva para clien
 ## 📂 Estrutura do Projeto
 
 chuleta-quente/
+
 │── public/ # Arquivos públicos (imagens, ícones, etc.)
 
 │── src/ # Código-fonte principal
