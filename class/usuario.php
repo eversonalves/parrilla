@@ -52,7 +52,7 @@ class Usuario{
         
     // Inserindo um Usuário.
         
-    public function inserir(){
+    public function inserir():bool{
         $sql = "INSERT INTO usuarios (login, senha, nivel) VALUES (:login, md5(:senha), :nivel)";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":login", $this->login);

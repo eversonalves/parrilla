@@ -114,23 +114,24 @@ class Produto{
         
     // Buscando por ID.
         
-    public function buscarPorId(int $id):bool{
-        $sql = "SELECT * FROM produtos WHERE id = :id";
+    public function buscarPorId(int $id):array{
+        $sql = "SELECT * FROM vw_produtos WHERE id = :id";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":id", $id);
         $cmd->execute();
-        if($cmd->rowCount()> 0){
-            $dados = $cmd->fetch(PDO::FETCH_ASSOC);
-            $this->id = $dados['id'];
-            $this->tipoId = $dados['tipo_id'];
-            $this->descricao = $dados['descricao'];
-            $this->resumo = $dados['resumo'];
-            $this->valor = $dados['valor'];
-            $this->imagem = $dados['imagem'];
-            $this->destaque = $dados['destaque'];
-            return true;
-        }
-        return false;
+        $dados = $cmd->fetch();
+        // if($cmd->rowCount() > 0){
+        //     $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+        //     $this->id = $dados['id'];
+        //     $this->tipoId = $dados['tipo_id'];
+        //     $this->descricao = $dados['descricao'];
+        //     $this->resumo = $dados['resumo'];
+        //     $this->valor = $dados['valor'];
+        //     $this->imagem = $dados['imagem'];
+        //     $this->destaque = $dados['destaque'];
+        //     return $this;
+        //}
+        return $dados;
     }
 
 

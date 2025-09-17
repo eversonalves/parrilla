@@ -38,14 +38,16 @@
   </head>
 
  <body class="fundo-fixo">
+  
+   <header>
 
     <!-- Inicio da área de menu -->
 
     <?php include 'menu_publico.php'?>
-
+    
     <!-- Final da área de menu -->
-
-    <header>
+    
+  </header>
 
       <main class="container">
 
@@ -53,17 +55,22 @@
 
         <?php include "carousel.php"?>
 
-        <!-- Final do carousel -->
-
+  
         <!-- Inicio do destaque -->
+
+        <a class="pt-6" name="destaques">&nbsp;</a>
 
         <?php include "destaques.php"?>
 
-         <!-- Final do destaque -->
+
+        <!-- Inicio do produtos -->
+
+        <a class="pt-6" name="produtos">&nbsp;</a>
+
+        <?php include "produtos_geral.php"?>
+
 
       </main>
-
-    </header>
 
 </body>
 </html>

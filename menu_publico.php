@@ -3,7 +3,7 @@
 
 <?php 
 
-include 'class/db.php';
+include_once 'class/db.php';
 
 $pdo = getConnection(); // ok
 $tipo_lista = $pdo->query("SELECT * FROM tipos");
@@ -50,7 +50,7 @@ $tipos = $tipo_lista->fetchAll();
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">Produtos</a>
+                <a href="#produtos" class="nav-link">Produtos</a>
               </li>
 
               <li class="nav-item dropdown">

@@ -18,7 +18,7 @@ $linhas = count($produtos);
 
 <?php if($linhas == 0){ ?>
 
-<h2 class="alert alert-dark text-center">Não há produtos em destaques</h2>
+<h2 class="alert alert-danger text-center">Não há produtos em destaques</h2>
 
 <?php }?>
 
@@ -259,8 +259,10 @@ $linhas = count($produtos);
 
           <!-- Final do card file mignon -->
         
+         <?php endforeach;?>  
+
         </div>  
-     <?php endforeach;?>  
-    <?php }?>
-</section>
+        <?php }?>
+      </section>
+      
 <!-- Final Card de Carnes -->
