@@ -106,3 +106,9 @@ CREATE VIEW vw_produtos AS
     JOIN tipos t
   WHERE p.tipo_id=t.id;
 COMMIT;
+
+
+insert into tipos (sigla, rotulo) values ('beb', 'Bebida');
+select * from tipos;
+
+select * from produtos;
