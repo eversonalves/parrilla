@@ -101,8 +101,13 @@ class Produto{
         
     // Listando Produtos.
         
-    public function listar():array{
-        $cmd = $this->pdo->query("SELECT * FROM vw_produtos ORDER BY id DESC");
+    public function listar(int $destaque = 0):array{
+        if($destaque == 0){
+            $cmd = $this->pdo->query("SELECT * FROM vw_produtos ORDER BY id DESC");
+        }
+        elseif ($destaque == 1){
+            $cmd = $this->pdo->query("SELECT * FROM vw_produtos WHERE destaque = 1 ORDER BY id DESC");
+        }
         return $cmd->fetchAll(PDO::FETCH_ASSOC);
     }
         

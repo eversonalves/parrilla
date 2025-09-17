@@ -8,6 +8,7 @@
 
 <!-- Inicio da tag HTML -->
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -40,9 +41,29 @@
 
     <!-- Inicio da área de menu -->
 
-    <?php include "menu_publico.php"; ?>
+    <?php include 'menu_publico.php'?>
 
     <!-- Final da área de menu -->
+
+    <header>
+
+      <main class="container">
+
+        <!-- Inicio do carousel  -->
+
+        <?php include "carousel.php"?>
+
+        <!-- Final do carousel -->
+
+        <!-- Inicio do destaque -->
+
+        <?php include "destaques.php"?>
+
+         <!-- Final do destaque -->
+
+      </main>
+
+    </header>
 
 </body>
 </html>

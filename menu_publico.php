@@ -3,7 +3,7 @@
 
 <?php 
 
-include "class/db.php";
+include 'class/db.php';
 
 $pdo = getConnection(); // ok
 $tipo_lista = $pdo->query("SELECT * FROM tipos");
@@ -17,7 +17,7 @@ $tipos = $tipo_lista->fetchAll();
 
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-          <a href="index.html" class="navbar-brand">
+          <a href="index.php" class="navbar-brand">
             <img
               src="./images/Logo_parrilla/Logo_escuro.png"
               alt="Logo parrila"
