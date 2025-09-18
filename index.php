@@ -38,7 +38,7 @@
 
     <!-- Área de menu -->
 
-    <?php include 'menu_publico.php' ?>
+    <?php include "menu_publico.php"?>
 
   </header>
 
@@ -64,6 +64,16 @@
 
 
   </main>
+
+  <footer class="container ps-4 bg-dark text-white p-4 rounded-top" id="Contato">
+
+    <!-- Rodapé -->
+
+    <a name="contato"></a>
+
+    <?php include "rodape.php"?>
+
+  </footer>
 
 </body>
 

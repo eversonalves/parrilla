@@ -1,6 +1,6 @@
 <?php
 
-include "class/produto.php";
+include_once "class/produto.php";
 
 $produto = new Produto();
 $produtos = $produto->listar(1);  // Retorna apenas os produtos em destaques, se for (1),  vazio () retorna todos.

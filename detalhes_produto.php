@@ -45,11 +45,12 @@ if (isset($_GET['id'])) {
 
         <!-- Área de menu -->
 
-        <?php include 'menu_publico.php' ?>
+        <?php include_once "menu_publico.php" ?>
 
     </header>
 
     <main class="container">
+        
         <h2 class="alert alert-danger">
             <a href="index.php" class="text-decoration-none">
                 <button class="btn btn-danger">
@@ -79,7 +80,19 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
         </div>
+
     </main>
+
+    <footer class="container ps-4 bg-dark text-white p-4 rounded-top" id="Contato">
+
+        <!-- Rodapé -->
+
+        <a name="contato"></a>
+
+        <?php include "rodape.php" ?>
+
+    </footer>
+
 </body>
 
 </html>
