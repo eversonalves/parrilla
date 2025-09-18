@@ -42,7 +42,7 @@ $tipos = $tipo_lista->fetchAll();
             href="index.php"
             class="nav-link active"
             aria-current="page">
-            <i class="bi bi-house-door-fill"></i>&nbsp;HOME
+            <i class="bi bi-house-door-fill"></i>
           </a>
         </li>
 
