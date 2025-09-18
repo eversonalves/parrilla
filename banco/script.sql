@@ -112,3 +112,6 @@ insert into tipos (sigla, rotulo) values ('beb', 'Bebida');
 select * from tipos;
 
 select * from produtos;
+
+INSERT INTO `produtos` (`tipo_id`, `descricao`, `resumo`, `valor`, `imagem`, `destaque`) VALUES
+(3, 'Coca Cola 200ml', 'É um dos refrigerantes mais consumido do mundo.', 2.50, 'cocacola.png', 1);
