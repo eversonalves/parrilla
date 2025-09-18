@@ -51,7 +51,7 @@ if (isset($_GET['id'])) {
 
     <main class="container">
         
-        <h2 class="alert alert-danger">
+        <h2 class="alert alert-danger text-center">
             <a href="index.php" class="text-decoration-none">
                 <button class="btn btn-danger">
                     <span class="bi bi-chevron-left"></span>
@@ -60,7 +60,7 @@ if (isset($_GET['id'])) {
             </a>
         </h2>
 
-        <div class="col-sm-12 col-md-12">
+        <div class="col-sm-12 col-md-12 mb-3">
             <div class="card">
                 <img
                     src="images/<?= $prod['imagem'] ?>"

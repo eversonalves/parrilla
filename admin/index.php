@@ -1,1 +1,5 @@
-<h1>Painel Adiministrativo</h1>
+<?php 
+
+include_once "acesso_com.php";
+
+?>

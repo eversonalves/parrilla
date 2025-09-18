@@ -26,7 +26,7 @@
             <div class="carousel-item active text-start">
               <img src="./images/Sobremesa/torta-de-amora.png" class="img-fluid mx-auto d-block"  alt="Torta-de-amora" />
               <div class="carousel-caption d-none d-md-block">
-                <h5><strong>Rocambole de Chocolate</strong></h5>
+                <h5><strong>Torta de Amora</strong></h5>
                 <p>
                   Descrição.
                 </p>
