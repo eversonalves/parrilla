@@ -1,6 +1,3 @@
-
-<!-- Inicio tag PHP -->
-
 <?php 
 
 include_once "db.php";
@@ -43,7 +40,7 @@ class Usuario{
     }
         
     public function getNivel(){
-        return $this->nivel;  // não vamos criar setnivel porque o banco é quem atribui automaticamente.
+        return $this->nivel;
     }
         
     public function setNivel(string $nivel){
@@ -75,14 +72,14 @@ class Usuario{
     }
         
         
-    // Buscando por ID.
+    // Buscando usuário por ID.
         
     public function buscarPorId(int $id):bool{
         $sql = "SELECT * FROM usuarios WHERE id = :id";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":id", $id);
         $cmd->execute();
-        if($cmd->rowCount()> 0){
+        if($cmd->rowCount() > 0){
             $dados = $cmd->fetch(PDO::FETCH_ASSOC);
             $this->id = $dados['id'];
             $this->login = $dados['login'];
@@ -102,7 +99,7 @@ class Usuario{
         $cmd->bindValue(":login", $loginInformado);
         $cmd->bindValue(":senha", $senhaInformada);
         $cmd->execute();
-        if($cmd->rowCount()> 0){
+        if($cmd->rowCount() > 0){
             $dados = $cmd->fetch(PDO::FETCH_ASSOC);
             $this->id = $dados['id'];
             $this->login = $dados['login'];
@@ -148,7 +145,7 @@ class Usuario{
     // Excluir usuário.
 
 
-    public function excluir(int $id):bool{
+    public function excluir():bool{
         if(!$this->id) return false;
 
         $sql = "DELETE FROM usuarios WHERE id = :id";
@@ -161,5 +158,3 @@ class Usuario{
 }
 
 ?>
-
-<!-- Final da tag PHP -->

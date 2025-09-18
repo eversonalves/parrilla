@@ -1,78 +1,70 @@
+<?php
 
-<!-- Inicio da tag PHP -->
 
-<?php 
 ?>
 
-<!-- Final da tag PHP -->
-
 <!-- Inicio da tag HTML -->
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Links Icons BootStrap do projeto -->
+  <!-- Links Icons BootStrap do projeto -->
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 
-    <!-- Links CSS e BootStrap do projeto -->
+  <!-- Links CSS e BootStrap do projeto -->
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 
-    <script src="js/bootstrap.min.js" defer></script>
+  <script src="js/bootstrap.min.js" defer></script>
 
-    <script src="js/bootstrap.bundle.min.js" defer></script>
+  <script src="js/bootstrap.bundle.min.js" defer></script>
 
-    <title>Parrilla</title>
-    
-  </head>
+  <title>Parrilla</title>
 
- <body class="fundo-fixo">
-  
-   <header>
+</head>
 
-    <!-- Inicio da área de menu -->
+<body class="fundo-fixo">
 
-    <?php include 'menu_publico.php'?>
-    
-    <!-- Final da área de menu -->
-    
+  <header>
+
+    <!-- Área de menu -->
+
+    <?php include 'menu_publico.php' ?>
+
   </header>
 
-      <main class="container">
+  <main class="container">
 
-        <!-- Inicio do carousel  -->
+    <!-- Área carousel (inclui uma sessão HTML) -->
 
-        <?php include "carousel.php"?>
-
-  
-        <!-- Inicio do destaque -->
-
-        <a class="pt-6" name="destaques">&nbsp;</a>
-
-        <?php include "destaques.php"?>
+    <?php include "carousel.php"?>
 
 
-        <!-- Inicio do produtos -->
+    <!-- Área  destaque -->
 
-        <a class="pt-6" name="produtos">&nbsp;</a>
+    <a class="pt-6" name="destaques">&nbsp;</a>
 
-        <?php include "produtos_geral.php"?>
+    <?php include "destaques.php"?>
 
 
-      </main>
+    <!-- Área geral de produtos -->
+
+    <a class="pt-6" name="produtos">&nbsp;</a>
+
+    <?php include "produtos_geral.php"?>
+
+
+  </main>
 
 </body>
-</html>
 
-<!-- Final da tag PHP -->
+</html>

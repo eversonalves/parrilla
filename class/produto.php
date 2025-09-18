@@ -1,6 +1,3 @@
-
-<!-- Inicio tag PHP -->
-
 <?php 
 
 include_once "db.php";

@@ -1,19 +1,15 @@
-<!-- Inicio da tag PHP -->
-
 <?php
 
 include_once "class/produto.php";
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $produto = new Produto();
-    $produto = $produto->buscarPorId($id);
+    $prod = $produto->buscarPorId($id);
 }
 
 ?>
 
 <!-- Final da tag PHP -->
-
-<!-- Inicio da tag HTML -->
 
 
 <!DOCTYPE html>
@@ -46,11 +42,11 @@ if(isset($_GET['id'])){
 <body class="fundo-fixo">
 
     <header>
-        <!-- Inicio da área de menu -->
+
+        <!-- Área de menu -->
 
         <?php include 'menu_publico.php' ?>
 
-        <!-- Final da área de menu -->
     </header>
 
     <main class="container">
@@ -59,35 +55,31 @@ if(isset($_GET['id'])){
                 <button class="btn btn-danger">
                     <span class="bi bi-chevron-left"></span>
                 </button>
-                <strong>Detalhes do produtos - </strong> <?=$prod['descricao']?>
+                Detalhes do produto - <strong><?= $prod['descricao'] ?></strong>
             </a>
         </h2>
 
         <div class="col-sm-12 col-md-12">
-             <div class="card">
-              <img
-                src="images/<?=$prod['imagem']?>"
-                alt="<?=$prod['descricao']?>"
-                class="card-img-top"
-              />
-              <div class="card-body bg-dark text-white">
-                <h3 class="card-title text-light text-center">
-                  <strong><i><?=$prod['descricao']?></i></strong>
-                </h3>
-                <p class="text-warning"><strong><?=$prod['rotulo']?></strong></p>
-                <p class="card-text text-start"><?=mb_strimwidth($prod['resumo'],0,42,'...')?></p>
-                <button class="btn btn-default disabled" role="button" style="cursor: default;">
-                    <?="R$ ".number_format($prod['valor'],2,',','.')?>
-                </button>
-                <a href="detalhes_produto.php?id=<?=$prod['id']?>" class="btn btn-light float-end">
-                  <span class="d-nome d-sm-inline">Saiba Mais</span>
-                  <i class="bi bi-info-circle"></i>
-                </a>
-              </div>
+            <div class="card">
+                <img
+                    src="images/<?= $prod['imagem'] ?>"
+                    alt="<?= $prod['descricao'] ?>"
+                    class="card-img-top" />
+                <div class="card-body bg-dark text-white">
+                    <h3 class="card-title text-light text-center">
+                        <strong><i><?= $prod['descricao'] ?></i></strong>
+                    </h3>
+                    <p class="text-warning"><strong><?= $prod['rotulo'] ?></strong></p>
+                    <p class="card-text text-start">
+                        <?= $prod['resumo'] ?>
+                    </p>
+                    <button class="btn btn-default disabled" role="button" style="cursor: default;">
+                        <?= "R$ " . number_format($prod['valor'], 2, ',', '.') ?>
+                    </button>
+                </div>
             </div>
         </div>
-
     </main>
-
 </body>
+
 </html>

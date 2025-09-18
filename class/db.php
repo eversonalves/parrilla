@@ -1,4 +1,4 @@
-    <?php 
+<?php 
 
     function getConnection(): PDO{  //  Retorna um objeto PDO.
         static $pdo; 
@@ -14,6 +14,4 @@
         }
         return $pdo;
     } 
-
-
-    ?>
+?>

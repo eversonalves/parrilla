@@ -1,6 +1,4 @@
-<!-- Inicio Carrocel de Sobremesa -->
-
-      <section>
+<section>
         <div id="carousel_sobremesa" class="carousel slide mb-4">
           <div class="carousel-indicators">
             <button
@@ -72,6 +70,4 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-      </section>
-
-<!-- Final Carrocel de Sobremesa -->
+</section>
