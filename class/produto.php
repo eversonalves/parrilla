@@ -134,12 +134,24 @@ class Produto{
 
     // Buscando produto por tipo_id.
         
-    public function buscarProTipoId(int $tipoId):array{
+    public function buscarPorTipoId(int $tipoId):array{
         $sql = "SELECT * FROM vw_produtos WHERE tipo_id = :tipo_id";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":tipo_id", $tipoId);
         $cmd->execute();
         $dados = $cmd->fetchAll();
+  
+        return $dados;
+    }
+
+
+    // Buscando produto por texto na descrição ou no resumo.
+        
+    public function buscarPorString(string $busca):array{
+        $sql = "SELECT * FROM vw_produtos WHERE resumo LIKE '%$busca%' OR resumo LIKE '%$busca%'";
+        $cmd = $this->pdo->prepare($sql);
+        $cmd->execute();
+        $dados = $cmd->fetchAll();   // Pode retorna um ou mais produtos.
   
         return $dados;
     }

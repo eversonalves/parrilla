@@ -75,13 +75,15 @@ $tipos = $tipo_lista->fetchAll();
         </li>
 
         <li class="nav-item">
-          <form class="d-flex" role="search">
+          <form action="produtos_busca.php" method="get" class="d-flex" role="search">
             <input
               type="search"
               class="form-control me-2"
               placeholder="Buscar produto"
               aria-label="search"
-              required />
+              name="buscar"
+              required 
+              />
             <button class="btn btn-outline-light">
               <i class="bi bi-search"></i>
             </button>
@@ -89,7 +91,7 @@ $tipos = $tipo_lista->fetchAll();
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="admin/index.php" class="nav-link">
             <i class="bi bi-person-fill"></i>&nbsp;ADMIN/CLIENTE
           </a>
         </li>

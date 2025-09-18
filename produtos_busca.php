@@ -1,12 +1,12 @@
 <?php
 
-    if(isset($_GET['tipo_id']))
+    if(isset($_GET['buscar']))
     {
-    $tipo_id = $_GET['tipo_id'];
+    $busca = $_GET['buscar'];
     include_once "class/produto.php";
 
     $produto = new Produto();
-    $produtos = $produto->buscarPorTipoId($tipo_id);  // Retorna apenas os produtos em destaques, se for (1),  vazio () retorna todos.
+    $produtos = $produto->buscarPorString($busca);  // Retorna apenas os produtos em destaques, se for (1),  vazio () retorna todos.
     $linhas = count($produtos);
     }
 ?>
@@ -71,7 +71,7 @@
 
             <?php if ($linhas > 0) { ?>
 
-                <h2 class="alert alert-primary text-center">Produtos</h2>
+                <h2 class="alert alert-primary text-center">Busca de Produtos por "<?=$busca?>"</h2>
                 <div class="row">
 
                     <?php foreach ($produtos as $prod): ?>
