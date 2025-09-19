@@ -4,7 +4,7 @@
 /* Imagem de fundo para a pagina */
 
 .fundo-fixo {
-    background: url(../images/Logo_parrilla/fundo-restaurante.jpg) no-repeat fixed center;
+    background: url(../images/logo/fundo-restaurante.jpg) no-repeat fixed center;
     -webkit-background-size: cover;
 }
 
