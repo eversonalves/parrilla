@@ -32,13 +32,17 @@ if($_POST){
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
+
     <!-- Bootstrap Icons -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <title>Produto - Insere</title>
+
 </head>
 
 <body>
@@ -62,6 +66,7 @@ if($_POST){
                             id="form_insere">
 
                             <!-- Tipo -->
+
                             <div class="mb-3">
                                 <label for="id_tipo" class="form-label">Tipo:</label>
                                 <div class="input-group">
@@ -73,6 +78,7 @@ if($_POST){
                             </div>
 
                             <!-- Destaque -->
+
                             <div class="mb-3">
                                 <label class="form-label">Destaque:</label>
                                 <div>
@@ -88,6 +94,7 @@ if($_POST){
                             </div>
 
                             <!-- Descrição -->
+
                             <div class="mb-3">
                                 <label for="descricao" class="form-label">Descrição:</label>
                                 <div class="input-group">
@@ -99,6 +106,7 @@ if($_POST){
                             </div>
 
                             <!-- Resumo -->
+
                             <div class="mb-3">
                                 <label for="resumo" class="form-label">Resumo:</label>
                                 <div class="input-group">
@@ -109,6 +117,7 @@ if($_POST){
                             </div>
 
                             <!-- Valor -->
+
                             <div class="mb-3">
                                 <label for="valor" class="form-label">Valor:</label>
                                 <div class="input-group">
@@ -119,6 +128,7 @@ if($_POST){
                             </div>
 
                             <!-- Imagem -->
+
                             <div class="mb-3">
                                 <label for="imagemfile" class="form-label">Imagem:</label>
                                 <div class="input-group">
@@ -129,6 +139,7 @@ if($_POST){
                             </div>
 
                             <!-- Botão -->
+                             
                             <div class="d-grid">
                                 <input type="submit" name="enviar" id="enviar" class="btn btn-danger w-100" value="Cadastrar">
                             </div>

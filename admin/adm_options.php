@@ -1,6 +1,6 @@
 <main class="container my-4">
   <h1 class="mb-4">Área Administrativa</h1>
-  <div class="row g-4"><!-- g-4 = espaçamento entre colunas -->
+  <div class="row g-4">  <!-- g-4 = espaçamento entre colunas -->
  
     <!-- ADM PRODUTOS -->
     <div class="col-sm-6 col-md-4">
