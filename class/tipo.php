@@ -3,7 +3,7 @@
 include_once "db.php";
 
 
-class Nivel{
+class Tipo{
 
     // Atributos da class Usuário.
 
@@ -42,7 +42,7 @@ class Nivel{
     // Inserindo Nivel.
         
     public function inserir():bool{
-        $sql = "INSERT INTO nivel (sigla, rotulo) VALUES (:sigla, :rotulo)";
+        $sql = "INSERT INTO tipos (sigla, rotulo) VALUES (:sigla, :rotulo)";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":sigla", $this->sigla);
         $cmd->bindValue(":rotulo", $this->rotulo);
@@ -58,7 +58,7 @@ class Nivel{
     // Listando Nivel.
         
     public function listar():array{
-        $cmd = $this->pdo->query("SELECT * FROM nivel ORDER BY id DESC");
+        $cmd = $this->pdo->query("SELECT * FROM tipos ORDER BY id DESC");
         return $cmd->fetchAll(PDO::FETCH_ASSOC);
     }
         

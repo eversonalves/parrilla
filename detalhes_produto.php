@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
         <div class="col-sm-12 col-md-12 mb-3">
             <div class="card">
                 <img
-                    src="./images/carne/<?= $prod['imagem'] ?>"
+                    src="./images/produtos_geral/<?= $prod['imagem'] ?>"
                     alt="<?= $prod['descricao'] ?>"
                     class="card-img-top" />
                 <div class="card-body bg-dark text-white">

@@ -1,7 +1,15 @@
 <?php
+
 include 'acesso_com.php';
- 
+include_once '../class/produto.php';
+
+$produto = new Produto();
+$produtos = $produto->listar();
+$linhas = count($produtos);
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -36,28 +44,37 @@ include 'acesso_com.php';
             </thead>
            
             <tbody>
-           
+
+                <?php foreach($produtos as $prod):?>
+
                     <tr>
                         <td class="d-none">
-                           
+                           <?=$prod['id']?>
                         </td>
                         <td>
-                           
+                           <?=$prod['rotulo']?>
                         </td>
                         <td>
-                           
+                           <?php
+                            if($prod['destaque']){
+                                echo '<i class="bi bi-star-fill text-danger"></i>';
+                            }else{
+                                echo '<i class="bi bi-check-circle-fill text-danger"></i>';
+                            }
+                            echo '&nbsp;' .$prod['descricao'];
+                           ?>
                         </td>
                         <td>
-                           
+                           <?=$prod['resumo']?>
                         </td>
                         <td>
-                           
+                           <?="R$".number_format($prod['valor'], 2,',','.')?>
                         </td>
                         <td>
-                            <img src="../images/" width="100" class="img-fluid rounded">
+                            <img src="../images/produtos_geral/<?=$prod['imagem']?>" width="100" class="img-fluid rounded">
                         </td>
                         <td>
-                            <a href="produtos_atualiza.php?id="
+                            <a href="produtos_atualiza.php?id=<?=$prod['id']?>"
                                class="btn btn-warning btn-sm w-100 mb-1">
                                 <i class="bi bi-arrow-clockwise"></i>
                                 <span class="d-none d-sm-inline"> ALTERAR</span>    
@@ -66,16 +83,20 @@ include 'acesso_com.php';
                            
  
                             <button
-                                data-nome=""
-                                data-id=""
-                                class="delete btn btn-danger btn-sm w-100">
-                                   
+                                data-nome="<?=$prod['descricao']?>"
+                                data-id="<?=$prod['id']?>"
+                                class="delete btn btn-danger btn-sm w-100
+                                <?=$prod['destaque']?'d-none':''?>"
+                                >
+
                                 <i class="bi bi-trash"></i>
                                 <span class="d-none d-sm-inline"> EXCLUIR</span>
                             </button>
                         </td>
                     </tr>    
                
+                <?php endforeach;?>  
+
             </tbody>
         </table>
     </main>
@@ -102,6 +123,20 @@ include 'acesso_com.php';
  
     <!-- JS Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.querySelectorAll('.delete').forEach(btn =>{
+            btn.addEventListener('click',function(){
+                let nome = this.getAttribute('data-nome');
+                let ip = this.getAttribute('data-id');
+                //console.log(id);
+                document.querySelector('span.nome').textContent = nome;
+                document.querySelector('a.delete-yes').setAttribute('href', 'produtos_excluir.php?id='+id)
+                let modal = new bootstrap.Modal(document.getElementById('modalEdit'));
+                modal.show();
+            });
+        });
+    </script>
  
 </body>
 </html>
