@@ -115,3 +115,17 @@ select * from produtos;
 
 INSERT INTO `produtos` (`tipo_id`, `descricao`, `resumo`, `valor`, `imagem`, `destaque`) VALUES
 (3, 'Coca Cola 200ml', 'É um dos refrigerantes mais consumido do mundo.', 2.50, 'cocacola.png', 1);
+
+
+CREATE TABLE `nivel` (
+  `id` int(11) NOT NULL,
+  `sigla` varchar(3) NOT NULL,
+  `rotulo` varchar(15) NOT NULL
+  );
+  
+  
+INSERT INTO `nivel` (`id`, `sigla`, `rotulo`) VALUES
+(1, 'adm', 'Administrador'),
+(2, 'cli', 'Cliente');
+
+select * from nivel;
