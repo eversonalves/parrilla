@@ -39,7 +39,7 @@ class Tipo{
     }
         
 
-    // Inserindo Nivel.
+    // Inserindo Tipos.
         
     public function inserir():bool{
         $sql = "INSERT INTO tipos (sigla, rotulo) VALUES (:sigla, :rotulo)";
@@ -55,7 +55,7 @@ class Tipo{
     }
         
         
-    // Listando Nivel.
+    // Listando Tipos.
         
     public function listar():array{
         $cmd = $this->pdo->query("SELECT * FROM tipos ORDER BY id DESC");

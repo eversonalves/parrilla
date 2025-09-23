@@ -1,11 +1,11 @@
 <?php
 
 include 'acesso_com.php';
-include_once '../class/produto.php';
+include_once '../class/tipo.php';
 
-$produto = new Produto();
-$produtos = $produto->listar();
-$linhas = count($produtos);
+$tipo = new Tipo();
+$tipos = $tipo->listar();
+$linhas = count($tipos);
 
 
 ?>
@@ -16,7 +16,7 @@ $linhas = count($produtos);
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - Lista</title>
+    <title>Tipos - Lista</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
 
@@ -27,21 +27,18 @@ $linhas = count($produtos);
 </head>
 <body>
     <?php include 'menu_adm.php'; ?>
-    <main class="container my-4">
-        <h2 class="alert alert-danger text-center">Lista de Produtos</h2>
+    <main class="container my-3">
+        <h2 class="alert alert-danger text-center">Lista de Tipos</h2>
         <table class="table table-hover table-sm table-warning align-middle">
-            <thead class="table-dark">
+            <thead class="table-dark text-center">
                 <tr>
                     <th class="d-none">ID</th>
-                    <th>TIPO</th>
-                    <th>DESCRIÇÃO</th>
-                    <th>RESUMO</th>
-                    <th>VALOR</th>
-                    <th>IMAGEM</th>
+                    <th>TIPOS</th>
+                    <th>SIGLAS</th>
                     <th>
-                        <a href="produtos_insere.php" target="_self" class="btn btn-primary btn-sm w-100">
+                        <a href="tipos_insere.php" target="_self" class="btn btn-primary btn-sm w-50">
                             <i class="bi bi-plus-circle"></i>
-                            <span class="d-none d-sm-inline"> ADICIONAR</span>
+                            <span class="d-none d-sm-inline">ADICIONAR</span>
                         </a>
                     </th>
                 </tr>
@@ -49,52 +46,32 @@ $linhas = count($produtos);
            
             <tbody>
 
-                <?php foreach($produtos as $prod):?>
+                <?php foreach($tipos as $tipo):?>
 
                     <tr>
                         <td class="d-none">
-                           <?=$prod['id']?>
+                           <?=$tipo['id']?>
                         </td>
-                        <td>
-                           <?=$prod['rotulo']?>
+                        <td class="text-center">
+                            <?=$tipo['rotulo']?>
                         </td>
-                        <td>
-                           <?php
-                            if($prod['destaque']){
-                                echo '<i class="bi bi-star-fill text-danger"></i>';
-                            }else{
-                                echo '<i class="bi bi-check-circle-fill text-danger"></i>';
-                            }
-                            echo '&nbsp;' .$prod['descricao'];
-                           ?>
+                        <td class="text-center">
+                           <?=$tipo['sigla']?>
                         </td>
-                        <td>
-                           <?=$prod['resumo']?>
-                        </td>
-                        <td>
-                           <?="R$".number_format($prod['valor'], 2,',','.')?>
-                        </td>
-                        <td>
-                            <img src="../images/produtos_geral/<?=$prod['imagem']?>" width="100" class="img-fluid rounded">
-                        </td>
-                        <td>
-                            <a href="produtos_atualiza.php?id=<?=$prod['id']?>"
-                               class="btn btn-warning btn-sm w-100 mb-1">
+                        <td class="text-center">
+                            <a href="tipos_atualiza.php?id=<?=$tipo['id']?>"
+                               class="btn btn-warning btn-sm mb-1 w-25">
                                 <i class="bi bi-arrow-clockwise"></i>
-                                <span class="d-none d-sm-inline"> ALTERAR</span>    
+                                <span class="d-none d-sm-inline">ALTERAR</span>    
                             </a>
  
-                           
- 
                             <button
-                                data-nome="<?=$prod['descricao']?>"
-                                data-id="<?=$prod['id']?>"
-                                class="delete btn btn-danger btn-sm w-100
-                                <?=$prod['destaque']?'d-none':''?>"
-                                >
+                                data-nome="<?=$tipo['rotulo']?>"
+                                data-id="<?=$tipo['id']?>"
+                                class="delete btn btn-danger btn-sm w-25">
 
                                 <i class="bi bi-trash"></i>
-                                <span class="d-none d-sm-inline"> EXCLUIR</span>
+                                <span class="d-none d-sm-inline">EXCLUIR</span>
                             </button>
                         </td>
                     </tr>    
@@ -135,9 +112,9 @@ $linhas = count($produtos);
             btn.addEventListener('click',function(){
                 let nome = this.getAttribute('data-nome');
                 let id = this.getAttribute('data-id');
-                console.log(id);
+                //console.log(id);
                 document.querySelector('span.nome').textContent = nome;
-                document.querySelector('a.delete-yes').setAttribute('href', 'produtos_excluir.php?id='+id)
+                document.querySelector('a.delete-yes').setAttribute('href', 'tipos_excluir.php?id='+id)
                 let modal = new bootstrap.Modal(document.getElementById('modalEdit'));
                 modal.show();
             });

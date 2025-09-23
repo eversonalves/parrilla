@@ -8,7 +8,7 @@ if($_POST){
         $nome_img = $_FILES['imagemfile']['nome'];
         $temp_img = $_FILES['imagemfile']['tmp_nome'];
         $rand = rand(100001, 999999);
-        $diretorio_imagem = "../images/".$rand.$nome_img;
+        $diretorio_imagem = "../images/produtos_geral".$rand.$nome_img;
         move_uploaded_file($temp_img, $diretorio_imagem);
     }
     $produto = new Produto;
@@ -72,7 +72,7 @@ if($_POST){
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-list-task"></i></span>
                                     <select name="id_tipo" id="id_tipo" class="form-select" required>
-                                        <option value=""></option>
+                                        <option value="1">Teste</option>
                                     </select>
                                 </div>
                             </div>
@@ -151,6 +151,37 @@ if($_POST){
             </div>
         </div>
     </main>
-</body>
 
+    <script>
+
+        // Script para imagem 
+
+        document.getElementById("imagemfile").onchange = function(){
+            var reader = new FileReader();
+            if(this.files[0].size>512000){
+                alert("A imagem deve ter no máximo 500KB");
+                $("#imagem").attr("src", "blank");
+                $("#imagem").hide();
+                $("#imagem").wrap('<form>').closest('form').get(0).reset();
+                $("#imagem").unwrap();
+                return false;
+            }
+            if(this.files[0].type.indexOf("imagem")==-1){
+                alert("Formato inválido! Escolha uma imagem.");
+                $("#imagem").attr("src", "blank");
+                $("#imagem").hide();
+                $("#imagem").wrap('<form>').closest('form').get(0).reset();
+                $("#imagem").unwrap();
+                return false;
+            }
+            reader.onload = function(e){
+                document.getElementById("imagem").src = e.target.result
+                $("#imagem").show();
+            }
+            reader.readAsDataURL(this.files[0])
+        }
+
+    </script>
+
+</body>
 </html>

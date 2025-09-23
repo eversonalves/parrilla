@@ -193,7 +193,7 @@ class Produto{
         $this->id = $idExcluir;
         if(!$this->id) return false;
 
-        $sql = "DELETE * FROM produtos WHERE id = :id";
+        $sql = "DELETE FROM produtos WHERE id = :id";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":id", $this->id, PDO::PARAM_INT);
 
