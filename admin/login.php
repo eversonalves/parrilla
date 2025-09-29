@@ -62,7 +62,7 @@ if($_POST){
                     <div class="col-12 col-sm-8 col-md-6 col-lg-4">
                         <h1 class="text-info text-center mb-4">Faça seu login</h1>
 
-                        <div class="card shadow-lg">
+                        <div class="card shadow-lg mb-5">
                             <div class="card-body">
                                 <p class="text-info text-center mb-4" role="alert">
                                     <i class="bi bi-people-fill display-1"></i>

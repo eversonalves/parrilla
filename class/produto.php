@@ -87,7 +87,6 @@ class Produto{
         $cmd->bindValue(":valor", $this->valor);
         $cmd->bindValue(":imagem", $this->imagem);
         $cmd->bindValue(":destaque", $this->destaque);
-        $cmd->execute();
         if($cmd->execute()){
             $this->id = $this->pdo->lastInsertId();   // ( lastInsertId ) Retorna o ultimo Id inserido.
             return true;
@@ -161,7 +160,7 @@ class Produto{
     // Atualizar Produtos.
 
     public function atualizar(int $idUpdate):bool{
-        $id = $idUpdate;
+        $this->id = $idUpdate;
         if(!$this->id) return false;
         
         $sql = "UPDATE produtos SET
@@ -170,7 +169,7 @@ class Produto{
         resumo = :resumo,
         valor = :valor,
         imagem = :imagem,
-        destaque = :destaque
+        destaque = ".($this->destaque==true?1:0)."
         WHERE id = :id";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":tipo_id", $this->tipoId);
@@ -178,7 +177,6 @@ class Produto{
         $cmd->bindValue(":resumo", $this->resumo);
         $cmd->bindValue(":valor", $this->valor);
         $cmd->bindValue(":imagem", $this->imagem);
-        $cmd->bindValue(":destaque", $this->destaque);
         $cmd->bindValue(":id", $this->id, PDO::PARAM_INT);
 
         return $cmd->execute();
