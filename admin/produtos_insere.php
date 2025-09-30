@@ -2,6 +2,10 @@
 
 include 'acesso_com.php';
 include_once '../class/produto.php';
+include_once '../class/tipo.php';
+
+$tipo = new Tipo();
+$listaTipos = $tipo->listar();
 
 if($_POST){
     if(isset($_POST['enviar'])){
@@ -24,6 +28,7 @@ if($_POST){
     }else{
         
     }
+
 }
 
 ?>
@@ -72,7 +77,11 @@ if($_POST){
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-list-task"></i></span>
                                     <select name="id_tipo" id="id_tipo" class="form-select" required>
-                                        <option value="1">Teste</option>
+                                        <?php foreach ($listaTipos as $tipo):?>
+                                        <option value="<?=$tipo['id']?>">
+                                            <?=htmlspecialchars($tipo['rotulo'])?>
+                                        </option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>
