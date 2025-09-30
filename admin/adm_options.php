@@ -31,7 +31,8 @@
       </div>
     </div>
     <!-- fecha ADM TIPOS -->
- 
+
+    
     <!-- ADM USUÁRIOS -->
     <div class="col-sm-6 col-md-4 mb-5">
       <div class="card border-info h-100 text-center">
@@ -46,6 +47,20 @@
       </div>
     </div>
     <!-- fecha ADM USUÁRIOS -->
- 
+
+    <!-- ADM RESERVAS -->
+    <div class="col-sm-6 col-md-4 mb-5">
+      <div class="card border-dark h-100 text-center">
+        <div class="card-body">
+          <img src="../images/iconreserva.png" alt="Usuários" class="mb-3" style="max-height:80px;">
+          <h5 class="card-title text-dark">RESERVAS</h5>
+          <div class="d-grid gap-2">
+            <a href="usuarios_lista.php" class="btn btn-dark">LISTAR</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fecha ADM RESERVAS-->
+    
   </div><!-- fecha row -->
 </main>

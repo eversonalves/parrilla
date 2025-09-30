@@ -35,6 +35,9 @@
           <a class="nav-link" href="usuarios_lista.php">USUÁRIOS</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="#">RESERVAS</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="../index.php">
             <i class="bi bi-house"></i>
           </a>

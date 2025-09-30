@@ -48,6 +48,9 @@
 
     <?php include "carousel.php"?>
 
+    <!-- Área de reservas -->
+
+    <?php include "reservas.php"?>
 
     <!-- Área  destaque -->
 
