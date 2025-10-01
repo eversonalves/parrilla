@@ -109,9 +109,6 @@ COMMIT;
 
 
 insert into tipos (sigla, rotulo) values ('beb', 'Bebida');
-select * from tipos;
-
-select * from produtos;
 
 INSERT INTO `produtos` (`tipo_id`, `descricao`, `resumo`, `valor`, `imagem`, `destaque`) VALUES
 (3, 'Coca Cola 200ml', 'É um dos refrigerantes mais consumido do mundo.', 2.50, 'cocacola.png', 1);
@@ -128,4 +125,57 @@ INSERT INTO `nivel` (`id`, `sigla`, `rotulo`) VALUES
 (1, 'adm', 'Administrador'),
 (2, 'cli', 'Cliente');
 
-select * from nivel;
+
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `nome_completo` varchar(150) NOT NULL,
+  `cpf` varchar(11) NOT NULL UNIQUE,
+  `email` varchar(100) NOT NULL UNIQUE,
+  `telefone` varchar(11) NOT NULL,
+  `senha` varchar(32) NOT NULL
+  );
+
+
+CREATE TABLE `mesas` (
+  `id_mesa` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `numero_mesa` varchar(3) NOT NULL,
+  `capacidade` varchar(2) NOT NULL 
+  );
+  
+  
+  CREATE TABLE `reservas` (
+  `id_reserva` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente`  int(11),
+  `data_reserva` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `horario` TIME NOT NULL,
+  `qtd_pessoas` varchar(2) NOT NULL,
+  `motivo` varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `codigo_reserva` varchar(30) NOT NULL,
+   PRIMARY KEY (id_reserva),
+   FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+  );
+  
+  CREATE TABLE `negativas` (
+  `id_negativa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_reserva` int(11),
+  `motivo_negativa` varchar(100) NOT NULL,
+  `data_registro` DATETIME DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (id_negativa),
+   FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
+  );
+  
+  
+CREATE TABLE `reserva_mesa` (
+  `id_reserva` int(11),
+  `id_mesa` int(11),
+   PRIMARY KEY (id_reserva, id_mesa),
+   FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva),
+   FOREIGN KEY (id_mesa) REFERENCES mesas(id_mesa)
+  );
+  
+  
+  INSERT INTO `clientes`
+  (`id_cliente`, `nome_completo`, `cpf`, `email`, `telefone`, `senha`)
+  VALUES
+    (1, 'Adriana Alves dos Reis', '88357376568', 'drica614@hotmail.com', '11949192628', md5('1234'));
