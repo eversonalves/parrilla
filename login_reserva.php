@@ -7,7 +7,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta http-equiv="refresh" content="30;url=./index.php">
+
     <!-- Links Icons BootStrap do projeto -->
     
     <link
@@ -66,7 +67,7 @@
                                             <label for="email" class="form-label">E-mail:</label>
                                             <div class="input-group">
                                                 <span class="input-group-text">
-                                                    <i class="bi bi-envelope-at text-info"></i>
+                                                    <i class="bi bi-envelope-at-fill text-info"></i>
                                                 </span>
                                                 <input type="text" name="email" id="email"
                                                 class="form-control"
