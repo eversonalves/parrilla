@@ -42,7 +42,7 @@ class Cliente{
     }
 
     public function getEmail(){
-        return $this->$email;
+        return $this->email;
     }
 
     public function setEmail(string $email){
@@ -50,7 +50,7 @@ class Cliente{
     }
 
     public function getTelefone(){
-        return $this->$telefone;
+        return $this->telefone;
     }
 
     public function setTelefone(string $telefone){
