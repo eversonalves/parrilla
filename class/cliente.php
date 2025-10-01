@@ -114,7 +114,7 @@ class Cliente{
 
     // Efetuar login cliente.
         
-    public function efetuarLogin(string $cpfInformado, string $emailInformada):array{
+    public function efetuarLoginCliente(string $cpfInformado, string $emailInformada):array{
         $sql = "SELECT * FROM clientes WHERE cpf = :cpf AND email = :email";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":cpf", $cpfInformado);

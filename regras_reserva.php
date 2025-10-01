@@ -100,7 +100,7 @@
                             Motivo da Reserva: (Exemplo: "Aniversário", "Casamento", "Confraternização", etc.)
                         </i>
                     </h5>
-                    <a href="login_reserva.php" class="btn btn-warning float-end">
+                    <a href="./cliente/login_reserva.php" class="btn btn-warning float-end">
                         <span class="d-nome d-sm-inline">Reservar</span>
                         <i class="bi bi-calendar2-date"></i>
                     </a>

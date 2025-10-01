@@ -2,6 +2,7 @@
 
 session_name('parrillaa');
 session_start();
+
 ?>
 
 <h1>Área de cliente</h1>
