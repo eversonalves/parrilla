@@ -7,12 +7,12 @@ include_once '../class/tipo.php';
 $tipo = new Tipo();
 $listaTipos = $tipo->listar();
 
-if ($_POST) {
-    if (isset($_POST['enviar'])) {
+if($_POST){
+    if(isset($_POST['enviar'])){
         $nome_img = $_FILES['imagemfile']['nome'];
         $temp_img = $_FILES['imagemfile']['tmp_nome'];
         $rand = rand(100001, 999999);
-        $diretorio_imagem = "../images/produtos_geral" . $rand . $nome_img;
+        $diretorio_imagem = "../images/produtos_geral".$rand.$nome_img;
         move_uploaded_file($temp_img, $diretorio_imagem);
     }
     $produto = new Produto;
@@ -21,12 +21,14 @@ if ($_POST) {
     $produto->setDescricao($_POST['descricao']);
     $produto->setResumo($_POST['resumo']);
     $produto->setValor($_POST['valor']);
-    $produto->setImagem($rand . $nome_img);
+    $produto->setImagem($rand.$nome_img);
 
-    if ($produto->inserir()) {
+    if($produto->inserir()){
         header('location: produtos_lista.php');
-    } else {
+    }else{
+        
     }
+
 }
 
 ?>
@@ -75,11 +77,11 @@ if ($_POST) {
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-list-task"></i></span>
                                     <select name="id_tipo" id="id_tipo" class="form-select" required>
-                                        <?php foreach ($listaTipos as $tipo): ?>
-                                            <option value="<?= $tipo['id'] ?>">
-                                                <?= htmlspecialchars($tipo['rotulo']) ?>
-                                            </option>
-                                        <?php endforeach; ?>
+                                        <?php foreach ($listaTipos as $tipo):?>
+                                        <option value="<?=$tipo['id']?>">
+                                            <?=htmlspecialchars($tipo['rotulo'])?>
+                                        </option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                             </div>
@@ -146,7 +148,7 @@ if ($_POST) {
                             </div>
 
                             <!-- Botão -->
-
+                             
                             <div class="d-grid">
                                 <input type="submit" name="enviar" id="enviar" class="btn btn-danger w-100" value="Cadastrar">
                             </div>
@@ -160,11 +162,12 @@ if ($_POST) {
     </main>
 
     <script>
+
         // Script para imagem 
 
-        document.getElementById("imagemfile").onchange = function() {
+        document.getElementById("imagemfile").onchange = function(){
             var reader = new FileReader();
-            if (this.files[0].size > 512000) {
+            if(this.files[0].size>512000){
                 alert("A imagem deve ter no máximo 500KB");
                 $("#imagem").attr("src", "blank");
                 $("#imagem").hide();
@@ -172,7 +175,7 @@ if ($_POST) {
                 $("#imagem").unwrap();
                 return false;
             }
-            if (this.files[0].type.indexOf("imagem") == -1) {
+            if(this.files[0].type.indexOf("imagem")==-1){
                 alert("Formato inválido! Escolha uma imagem.");
                 $("#imagem").attr("src", "blank");
                 $("#imagem").hide();
@@ -180,14 +183,14 @@ if ($_POST) {
                 $("#imagem").unwrap();
                 return false;
             }
-            reader.onload = function(e) {
+            reader.onload = function(e){
                 document.getElementById("imagem").src = e.target.result
                 $("#imagem").show();
             }
             reader.readAsDataURL(this.files[0])
         }
+
     </script>
 
 </body>
-
 </html>

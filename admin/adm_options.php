@@ -1,5 +1,6 @@
+<body class="fundo-fixo"> 
 <main class="container my-4">
-  <h1 class="mb-4 text-center">Área Administrativa</h1>
+  <h1 class="mb-4 text-center text-white">Área Administrativa</h1>
   <div class="row g-4">  <!-- g-4 = espaçamento entre colunas -->
  
     <!-- ADM PRODUTOS -->
@@ -55,7 +56,7 @@
           <img src="../images/iconreserva.png" alt="Usuários" class="mb-3" style="max-height:80px;">
           <h5 class="card-title text-dark">RESERVAS</h5>
           <div class="d-grid gap-2">
-            <a href="usuarios_lista.php" class="btn btn-dark">LISTAR</a>
+            <a href="reservas_lista.php" class="btn btn-dark">LISTAR</a>
           </div>
         </div>
       </div>
@@ -64,3 +65,4 @@
     
   </div><!-- fecha row -->
 </main>
+</body>

@@ -46,7 +46,7 @@ class Cliente{
     }
 
     public function setEmail(string $email){
-        $this->$email = $email;
+        $this->email = $email;
     }
 
     public function getTelefone(){
@@ -54,7 +54,7 @@ class Cliente{
     }
 
     public function setTelefone(string $telefone){
-        $this->$telefone = $telefone;
+        $this->telefone = $telefone;
     }
 
     public function getSenha(){
