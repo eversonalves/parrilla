@@ -1,36 +1,5 @@
 <?php
 
-include 'acesso_com.php';
-include_once '../class/produto.php';
-include_once '../class/tipo.php';
-
-$tipo = new Tipo();
-$listaTipos = $tipo->listar();
-
-if($_POST){
-    if(isset($_POST['enviar'])){
-        $nome_img = $_FILES['imagemfile']['nome'];
-        $temp_img = $_FILES['imagemfile']['tmp_nome'];
-        $rand = rand(100001, 999999);
-        $diretorio_imagem = "../images/produtos_geral".$rand.$nome_img;
-        move_uploaded_file($temp_img, $diretorio_imagem);
-    }
-    $produto = new Produto;
-    $produto->setTipoId($_POST['id_tipo']);
-    $produto->setDestaque($_POST['destaque']);
-    $produto->setDescricao($_POST['descricao']);
-    $produto->setResumo($_POST['resumo']);
-    $produto->setValor($_POST['valor']);
-    $produto->setImagem($rand.$nome_img);
-
-    if($produto->inserir()){
-        header('location: produtos_lista.php');
-    }else{
-        
-    }
-
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +15,7 @@ if($_POST){
     <!-- Bootstrap Icons -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <title>Produto - Insere</title>
+    <title>Reserva - Insere</title>
 
 </head>
 
