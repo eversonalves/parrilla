@@ -9,10 +9,10 @@ $listaTipos = $tipo->listar();
 
 if ($_POST) {
     if (isset($_POST['enviar'])) {
-        $nome_img = $_FILES['imagemfile']['nome'];
-        $temp_img = $_FILES['imagemfile']['tmp_nome'];
+        $nome_img = $_FILES['imagemfile']['name'];
+        $temp_img = $_FILES['imagemfile']['tmp_name'];
         $rand = rand(100001, 999999);
-        $diretorio_imagem = "../images/produtos_geral" . $rand . $nome_img;
+        $diretorio_imagem = "../images/produtos_geral/" . $rand . $nome_img;
         move_uploaded_file($temp_img, $diretorio_imagem);
     }
     $produto = new Produto;
@@ -142,7 +142,7 @@ if ($_POST) {
                                     <span class="input-group-text"><i class="bi bi-image"></i></span>
                                     <input type="file" name="imagemfile" id="imagemfile" class="form-control" accept="image/*">
                                 </div>
-                                <img src="" name="imagem" id="imagem" class="img-fluid mt-2" alt="Pré-visualização da imagem">
+                                <img src="" id="imagem" name="imagem" class="img-fluid mt-2" alt="Pré-visualização da imagem">
                             </div>
 
                             <!-- Botão -->
@@ -160,6 +160,7 @@ if ($_POST) {
     </main>
 
     <script>
+        
         // Script para imagem 
 
         document.getElementById("imagemfile").onchange = function() {
@@ -172,7 +173,7 @@ if ($_POST) {
                 $("#imagem").unwrap();
                 return false;
             }
-            if (this.files[0].type.indexOf("imagem") == -1) {
+            if (this.files[0].type.indexOf("image") == -1) {
                 alert("Formato inválido! Escolha uma imagem.");
                 $("#imagem").attr("src", "blank");
                 $("#imagem").hide();

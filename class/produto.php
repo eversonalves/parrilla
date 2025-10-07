@@ -70,7 +70,7 @@ class Produto{
         return $this->destaque;
     }
 
-    public function setDestaque(bool $destaque){
+    public function setDestaque($destaque){
         $this->destaque = $destaque;
     }
 
@@ -79,14 +79,13 @@ class Produto{
     // Inserindo um Produtos.
         
     public function inserir():bool{
-        $sql = "INSERT INTO produtos (tipo_id, descricao, resumo, valor, imagem, destaque) VALUES (:tipo_id, :descricao, :resumo, :valor, :imagem, :destaque)";
+        $sql = "INSERT INTO produtos (tipo_id, descricao, resumo, valor, imagem, destaque) VALUES (:tipo_id, :descricao, :resumo, :valor, :imagem, ".($this->destaque==true?1:0).")";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":tipo_id", $this->tipoId);
         $cmd->bindValue(":descricao", $this->descricao);
         $cmd->bindValue(":resumo", $this->resumo);
         $cmd->bindValue(":valor", $this->valor);
         $cmd->bindValue(":imagem", $this->imagem);
-        $cmd->bindValue(":destaque", $this->destaque);
         if($cmd->execute()){
             $this->id = $this->pdo->lastInsertId();   // ( lastInsertId ) Retorna o ultimo Id inserido.
             return true;
