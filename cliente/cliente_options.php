@@ -8,7 +8,7 @@
       <div class="col-sm-6 col-md-4 mb-5">
         <div class="card border-dark h-100 text-center">
           <div class="card-body">
-            <img src="../images/iconreserva.png" alt="Clientes" class="mb-3" style="max-height:80px;">
+            <img src="../IMAGES/logo/iconreserva.png" alt="Clientes" class="mb-3" style="max-height:80px;">
             <h5 class="card-title text-dark">MINHAS RESERVA</h5>
             <div class="d-grid gap-2">
               <a href="reservas_lista.php"
@@ -28,7 +28,7 @@
       <div class="col-sm-6 col-md-4 mb-5">
         <div class="card border-dark h-100 text-center">
           <div class="card-body">
-            <img src="../images/iconreserva.png" alt="Clientes" class="mb-3" style="max-height:80px;">
+            <img src="../IMAGES/logo/iconreserva.png" alt="Clientes" class="mb-3" style="max-height:80px;">
             <h5 class="card-title text-dark">NOVA RESERVA</h5>
             <div class="d-grid gap-2">
               <a href="reserva_insere.php"
@@ -48,7 +48,7 @@
       <div class="col-sm-6 col-md-4 mb-5">
         <div class="card border-dark h-100 text-center">
           <div class="card-body">
-            <img src="../images/iconreserva.png" alt="Clientes" class="mb-3" style="max-height:80px;">
+            <img src="../IMAGES/logo/iconreserva.png" alt="Clientes" class="mb-3" style="max-height:80px;">
             <h5 class="card-title text-dark">RESERVAS</h5>
             <div class="d-grid gap-2">
               <a href="reserva_cancelar.php"

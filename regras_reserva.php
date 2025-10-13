@@ -57,7 +57,7 @@
         <div class="col-sm-12 col-md-12 mb-3">
             <div class="card">
                 <img
-                    src="./images/reservamesas.png"
+                    src="./IMAGES/alt/reservamesas.png"
                     alt=""
                     class="card-img-top" />
                 <div class="card-body bg-dark text-white">
