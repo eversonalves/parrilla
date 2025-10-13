@@ -18,7 +18,7 @@ $tipos = $tipo_lista->fetchAll();
   <div class="container-fluid">
     <a href="index.php" class="navbar-brand">
       <img
-        src=".//images/logo/Logo_escuro.png"
+        src="./IMAGES/logo/Logo_escuro.png"
         alt="Logo parrila"
         width="190" />
     </a>
