@@ -24,7 +24,7 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active text-start">
-              <img src="#" class="img-fluid mx-auto d-block"  alt="Torta-de-amora" />
+              <img src="./IMAGES/alt/torta-de-amora.png" class="img-fluid mx-auto d-block"  alt="Torta-de-amora" />
               <div class="carousel-caption d-none d-md-block">
                 <h5><strong>Torta de Amora</strong></h5>
                 <p>
@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img src="#" class="img-fluid mx-auto d-block" alt="Torta-de-chocolate" />
+              <img src="./IMAGES/alt/torta-de-chocolate.png" class="img-fluid mx-auto d-block" alt="Torta-de-chocolate" />
               <div class="carousel-caption d-none d-md-block text-dark">
                 <h5><strong>Torta de Chocolate</strong></h5>
                 <p>
@@ -42,7 +42,7 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img src="#" class="img-fluid mx-auto d-block" alt="Torta-banana-morango" />
+              <img src="./IMAGES/alt/torta-banana-morango.jpg" class="img-fluid mx-auto d-block" alt="Torta-banana-morango" />
               <div class="carousel-caption d-none d-md-block">
                 <h5><strong>Torta de Morando com Banana</strong></h5>
                 <p>
