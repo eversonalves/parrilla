@@ -4,8 +4,8 @@
         static $pdo; 
         if ($pdo === null){    // ( = ) Atribuição ( == ) Comparação  ( === ) Comparação tipo e valor.
             $pdo = new PDO(
-                //"mysql:host=192.168.20.113;dbname=tdszuphpdb01",
-                "mysql:host=10.91.47.50;dbname=tdszuphpdb01",  // Host e nome do Banco de Dados.
+                "mysql:host=192.168.20.113;dbname=tdszuphpdb01", // Server casa.
+                //"mysql:host=10.91.47.50;dbname=tdszuphpdb01",  // server escola.
                 "root",  // Usuário do Banco de Dados.
                 "123",  //  Senha do Banco de Dados.
                 [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
