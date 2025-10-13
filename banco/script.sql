@@ -17,25 +17,13 @@ CREATE TABLE `produtos` (
   `destaque` BIT NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
--- Extraindo dados da tabela `produtos`
-INSERT INTO `produtos` (`id`, `tipo_id`, `descricao`, `resumo`, `valor`, `imagem`, `destaque`) VALUES
-(1, 1, 'Picanha ao alho', ' Esta e a combinação do sabor inconfundível da picanha com o aroma acentuado do alho. Condimento que casa perfeitamente com este corte nobre', 49.90, 'picanha_alho.jpg', 1),
-(2, 1, 'Fraldinha', 'Uma das carnes mais suculentas do cardápio. Requintada, com maciez particular e pouca gordura, e uma carne que chama atenção pela sua textura', 29.90, 'fraldinha.jpg', 0),
-(3, 1, 'Costela', 'A mais procurada! Feita na churrasqueira ou ao fogo de chão, e preparada por mais de 08 horas para atingir o ponto ideal e torna-la a referência de nossa churrascaria', 39.90, 'costelona.jpg', 1),
-(4, 1, 'Cupim', 'Uma referência especial dos paulistas. Bastante gordurosa e macia, o cupim e uma carne fibrosa, que se desfia quando bem preparada ', 47.90, 'cupim.jpg', 1),
-(5, 1, 'Picanha ', 'Considerada por muitos como a mais nobre e procurada carne de churrasco, a picanha pode ser servida ao ponto , mal passada ou bem passada. Suculenta e com sua característica capa de gordura', 72.90, 'picanha_sem.jpg', 0),
-(6, 1, 'Apfelstrudel', 'Sobremesa tradicional austro-germânica e um delicioso folhado de maça e canela com sorvete', 12.60, 'strudel.jpg', 0),
-(7, 1, 'Alcatra', 'Carne com muitas fibras, porém macia. Sua lateral apresenta uma boa parcela de gordura. Equilibrando de forma harmônica maciez e fibras.', 36.28, 'alcatra_pedra.jpg', 0),
-(8, 1, 'Maminha', 'Vem da parte inferior da Alcatra. E uma carne com fibras, porém macia e saborosa.', 31.90, 'maminha.jpg', 0),
-(9, 2, 'Abacaxii', 'Abacaxi assado com canela ao creme de leite condensado ', 16.95, 'abacaxi.jpg', 0);
- 
 -- Indexes for table `produtos`
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
  
 -- AUTO_INCREMENT for table `produtos`
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
  
 -- Estrutura para tabela `tipos`
 CREATE TABLE `tipos` (
@@ -44,10 +32,11 @@ CREATE TABLE `tipos` (
   `rotulo` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
--- Despejando dados para a tabela `tipos`
+-- Inserindo Dados na Tabela `tipos'
 INSERT INTO `tipos` (`id`, `sigla`, `rotulo`) VALUES
 (1, 'chu', 'Churrasco'),
-(2, 'sob', 'Sobremesa');
+(2, 'sob', 'Sobremesa'),
+(3, 'beb', 'Bebida');
  
 -- Índices de tabela `tipos`
 ALTER TABLE `tipos`
@@ -55,7 +44,7 @@ ALTER TABLE `tipos`
  
 -- AUTO_INCREMENT de tabela `tipos`
 ALTER TABLE `tipos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
  
 -- Estrutura para tabela `tipos`
 CREATE TABLE `usuarios` (
@@ -91,7 +80,7 @@ ALTER TABLE `produtos`
     ON DELETE no action
     ON UPDATE no action;  
    
--- Criando a view vw_produtos
+-- Criando a view `vw_produtos`
 CREATE VIEW vw_produtos AS
   SELECT  p.id,
       p.tipo_id,
@@ -107,25 +96,19 @@ CREATE VIEW vw_produtos AS
   WHERE p.tipo_id=t.id;
 COMMIT;
 
-
-insert into tipos (sigla, rotulo) values ('beb', 'Bebida');
-
-INSERT INTO `produtos` (`tipo_id`, `descricao`, `resumo`, `valor`, `imagem`, `destaque`) VALUES
-(3, 'Coca Cola 200ml', 'É um dos refrigerantes mais consumido do mundo.', 2.50, 'cocacola.png', 1);
-
-
+-- Estrutura da tabela `nivel`
 CREATE TABLE `nivel` (
   `id` int(11) NOT NULL,
   `sigla` varchar(3) NOT NULL,
   `rotulo` varchar(15) NOT NULL
   );
   
-  
+-- Inserindo Dados na Tabela `nivel'
 INSERT INTO `nivel` (`id`, `sigla`, `rotulo`) VALUES
 (1, 'adm', 'Administrador'),
 (2, 'cli', 'Cliente');
 
-
+-- Estrutura da tabela `clientes`
 CREATE TABLE `clientes` (
   `id_cliente` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nome_completo` varchar(150) NOT NULL,
@@ -135,14 +118,14 @@ CREATE TABLE `clientes` (
   `senha` varchar(32) NOT NULL
   );
 
-
+-- Estrutura da tabela `mesas`
 CREATE TABLE `mesas` (
   `id_mesa` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `numero_mesa` varchar(3) NOT NULL,
   `capacidade` varchar(2) NOT NULL 
   );
-  
-  
+    
+    -- Estrutura da tabela `reservas`
   CREATE TABLE `reservas` (
   `id_reserva` int(11) NOT NULL AUTO_INCREMENT,
   `id_cliente`  int(11),
@@ -156,6 +139,7 @@ CREATE TABLE `mesas` (
    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
   );
   
+  -- Estrutura da tabela `negativas`
   CREATE TABLE `negativas` (
   `id_negativa` int(11) NOT NULL AUTO_INCREMENT,
   `id_reserva` int(11),
@@ -165,7 +149,7 @@ CREATE TABLE `mesas` (
    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
   );
   
-  
+  -- Estrutura da tabela `reserva_mesa`
 CREATE TABLE `reserva_mesa` (
   `id_reserva` int(11),
   `id_mesa` int(11),
@@ -173,9 +157,3 @@ CREATE TABLE `reserva_mesa` (
    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva),
    FOREIGN KEY (id_mesa) REFERENCES mesas(id_mesa)
   );
-  
-  
-  INSERT INTO `clientes`
-  (`id_cliente`, `nome_completo`, `cpf`, `email`, `telefone`, `senha`)
-  VALUES
-    (1, 'Adriana Alves dos Reis', '88357376568', 'drica614@hotmail.com', '11949192628', md5('1234'));
