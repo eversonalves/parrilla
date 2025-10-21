@@ -130,7 +130,7 @@ if ($_POST) {
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-tag"></i></span>
                                     <input type="number" name="valor" id="valor"
-                                        class="form-control" required min="0" step="0.01">
+                                        class="form-control" required min="0.01" max='999.99' step="0.01">
                                 </div>
                             </div>
 
