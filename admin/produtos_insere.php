@@ -159,80 +159,35 @@ if ($_POST) {
         </div>
     </main>
 
-<script>
-    // Script para imagem
-    
-    // Função para limpar a pré-visualização e resetar o input file
-    const clearImagePreviewAndInput = (inputElement) => {
-        $("#imagem").attr("src", "blank");
-        $("#imagem").hide();
-        // Lógica para resetar o input file (funciona com ou sem jQuery)
-        // Isso é crucial para permitir que o evento 'onchange' dispare novamente com o mesmo arquivo.
-        $(inputElement).wrap('<form>').closest('form').get(0).reset();
-        $(inputElement).unwrap();
-    };
-
-    document.getElementById("imagemfile").onchange = function() {
-        const file = this.files[0];
+    <script>
         
-        // Mantém a referência ao input para uso dentro de funções assíncronas
-        const inputElement = this; 
+        // Script para imagem 
 
-        // 1. VERIFICAÇÃO SE HÁ UM ARQUIVO SELECIONADO (NULO)
-        if (file) {
-            // Se o usuário cancelou a seleção (ou o input foi limpo), o arquivo será nulo
-            alert("Por favor selecione uma imagem para efetuar o cadastro do produto");
-            // A pré-visualização não precisa ser limpa se não houve seleção
-            return;
+        document.getElementById("imagemfile").onchange = function() {
+            var reader = new FileReader();
+            if (this.files[0].size > 512000) {
+                alert("A imagem deve ter no máximo 500KB");
+                $("#imagem").attr("src", "blank");
+                $("#imagem").hide();
+                $("#imagem").wrap('<form>').closest('form').get(0).reset();
+                $("#imagem").unwrap();
+                return false;
+            }
+            if (this.files[0].type.indexOf("image") == -1) {
+                alert("Formato inválido! Escolha uma imagem.");
+                $("#imagem").attr("src", "blank");
+                $("#imagem").hide();
+                $("#imagem").wrap('<form>').closest('form').get(0).reset();
+                $("#imagem").unwrap();
+                return false;
+            }
+            reader.onload = function(e) {
+                document.getElementById("imagem").src = e.target.result
+                $("#imagem").show();
+            }
+            reader.readAsDataURL(this.files[0])
         }
-
-        // 2. VERIFICAÇÃO DE TAMANHO DO ARQUIVO (MAX 500KB)
-        const MAX_SIZE_BYTES = 512000;
-        if (file.size > MAX_SIZE_BYTES) {
-            alert("A imagem deve ter no máximo 500KB");
-            clearImagePreviewAndInput(inputElement);
-            return;
-        }
-
-        // 3. VERIFICAÇÃO DE TIPO DE ARQUIVO (DEVE SER IMAGEM)
-        if (file.type.indexOf("image") == -1) {
-            alert("Formato inválido! Escolha uma imagem.");
-            clearImagePreviewAndInput(inputElement);
-            return;
-        }
-
-        // 4. VERIFICAÇÃO DE DIMENSÕES (MAX 640x480)
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            const img = new Image();
-
-            // Este evento dispara quando a imagem no objeto 'img' estiver carregada, 
-            // e suas dimensões (width/height) se tornam acessíveis.
-            img.onload = function() {
-                const MAX_WIDTH = 640;
-                const MAX_HEIGHT = 480;
-
-                // Condição para aceitar: Largura E altura devem ser menores ou iguais aos limites
-                if (this.width <= MAX_WIDTH && this.height <= MAX_HEIGHT) {
-                    // Dimensões corretas: Exibe a imagem
-                    document.getElementById("imagem").src = e.target.result;
-                    $("#imagem").show();
-                } else {
-                    // Dimensões incorretas (se for maior que o limite): Alerta e limpa
-                    alert("As dimensão precisa ser 640x480"); 
-                    clearImagePreviewAndInput(inputElement);
-                }
-            };
-            
-            // Atribui a Data URL ao src da imagem para iniciar o carregamento.
-            img.src = e.target.result;
-        }
-
-        // Lê o arquivo como uma URL de dados (Data URL)
-        reader.readAsDataURL(file);
-    }
-</script>
+    </script>
 
 </body>
 </html>
