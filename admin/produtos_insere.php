@@ -142,7 +142,7 @@ if ($_POST) {
                                     <span class="input-group-text"><i class="bi bi-image"></i></span>
                                     <input type="file" name="imagemfile" id="imagemfile" class="form-control" accept="image/*">
                                 </div>
-                                <img src="" id="imagem" name="imagem" class="img-fluid mt-2" alt="Pré-visualização da imagem">
+                                <img src="" id="imagem" name="imagem" class="img-fluid mt-2" alt="Pré-visualização da imagem" required>
                             </div>
 
                             <!-- Botão -->
