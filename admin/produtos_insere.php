@@ -159,35 +159,63 @@ if ($_POST) {
         </div>
     </main>
 
-    <script>
-        
-        // Script para imagem 
+<script>
 
-        document.getElementById("imagemfile").onchange = function() {
-            var reader = new FileReader();
-            if (this.files[0].size > 512000) {
-                alert("A imagem deve ter no máximo 500KB");
-                $("#imagem").attr("src", "blank");
-                $("#imagem").hide();
-                $("#imagem").wrap('<form>').closest('form').get(0).reset();
-                $("#imagem").unwrap();
-                return false;
-            }
-            if (this.files[0].type.indexOf("image") == -1) {
-                alert("Formato inválido! Escolha uma imagem.");
-                $("#imagem").attr("src", "blank");
-                $("#imagem").hide();
-                $("#imagem").wrap('<form>').closest('form').get(0).reset();
-                $("#imagem").unwrap();
-                return false;
-            }
-            reader.onload = function(e) {
-                document.getElementById("imagem").src = e.target.result
-                $("#imagem").show();
-            }
-            reader.readAsDataURL(this.files[0])
+    // Script para imagem com validação de dimensão (640x480), tamanho (máx 500KB) e formato.
+
+    document.getElementById("imagemfile").onchange = function() {
+        const file = this.files[0];
+        const MAX_SIZE = 512000; // 500KB em bytes
+        const REQUIRED_WIDTH = 640;
+        const REQUIRED_HEIGHT = 480;
+        function resetFileAndImage(message) {
+            alert(message);
+            $("#imagem").attr("src", "blank");
+            $("#imagem").hide();
+            $("#imagemfile").wrap('<form>').closest('form').get(0).reset();
+            $("#imagemfile").unwrap();
         }
-    </script>
 
+        if (!file) {
+            return;
+        }
+
+        // 1. Validação do Tamanho do Arquivo (máximo 500KB)
+
+        if (file.size > MAX_SIZE) {
+            resetFileAndImage("A imagem deve ter no máximo 500KB");
+            return false;
+        }
+
+        // 2. Validação do Tipo do Arquivo (apenas imagem)
+
+        if (file.type.indexOf("image") === -1) {
+            resetFileAndImage("Formato inválido! Escolha uma imagem.");
+            return false;
+        }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const image = new Image();
+            image.onload = function() {
+                const width = this.width;
+                const height = this.height;
+
+                // 3. Validação das Dimensões (640x480)
+
+                if (width !== REQUIRED_WIDTH || height !== REQUIRED_HEIGHT) {
+                    resetFileAndImage("A imagem precisa ter 640x480.");
+                    return false;
+                }
+
+                // Se todas as validações passarem: Exibe a imagem
+
+                document.getElementById("imagem").src = e.target.result;
+                $("#imagem").show();
+            };
+            image.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    };
+</script>
 </body>
 </html>
