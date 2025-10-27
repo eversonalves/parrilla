@@ -31,7 +31,7 @@ $linhas = count($produtos);
         <div class="col-sm-6 col-md-4 mb-4">
           <div class="card">
             <img
-              src="./IMAGES<?=$prod['imagem']?>"
+              src="./images/produtos_geral/<?=$prod['imagem']?>"
               alt="<?=$prod['descricao']?>"
               class="card-img-top"
             />
