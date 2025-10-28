@@ -1,5 +1,7 @@
 <?php 
 
+namespace App;
+
 include_once "db.php";
 
 
@@ -103,7 +105,7 @@ class Produto{
         elseif ($destaque == 1){
             $cmd = $this->pdo->query("SELECT * FROM vw_produtos WHERE destaque = 1 ORDER BY id DESC");
         }
-        return $cmd->fetchAll(PDO::FETCH_ASSOC);
+        return $cmd->fetchAll();
     }
         
         

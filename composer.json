@@ -5,7 +5,12 @@
     },
     "autoload": {
         "psr-4": {
-            "WinSv\\Parrilla\\": "src/"
+            "App\\": "class/"
+        }
+    },
+    "autoload dev": {
+        "psr-4": {
+            "tests\\": "tests/"
         }
     },
     "authors": [
