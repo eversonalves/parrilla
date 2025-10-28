@@ -1,0 +1,17 @@
+{
+    "name": "win-sv/parrilla",
+    "require": {
+        "phpunit/phpunit": "^12.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "WinSv\\Parrilla\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Everson Alves",
+            "email": "everson.alves18@hotmail.com"
+        }
+    ]
+}
