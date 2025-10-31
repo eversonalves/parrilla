@@ -178,7 +178,7 @@ class Produto{
         $cmd->bindValue(":resumo", $this->resumo);
         $cmd->bindValue(":valor", $this->valor);
         $cmd->bindValue(":imagem", $this->imagem);
-        $cmd->bindValue(":id", $this->id, PDO::PARAM_INT);
+        $cmd->bindValue(":id", $this->id);
 
         return $cmd->execute();
     }
@@ -194,7 +194,7 @@ class Produto{
 
         $sql = "DELETE FROM produtos WHERE id = :id";
         $cmd = $this->pdo->prepare($sql);
-        $cmd->bindValue(":id", $this->id, PDO::PARAM_INT);
+        $cmd->bindValue(":id", $this->id);
 
         return $cmd->execute();
     }
