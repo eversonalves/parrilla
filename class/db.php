@@ -1,4 +1,5 @@
 <?php    // Conexão com o Banco de dados
+
     function getConnection(): PDO{ 
         static $pdo; 
         if ($pdo === null){    // ( = ) Atribuição ( == ) Comparação  ( === ) Comparação tipo e valor.
@@ -13,4 +14,5 @@
         }
         return $pdo;
     } 
+    
 ?>

@@ -2,7 +2,7 @@
 
 <?php
 
-include_once "class/db.php";
+include_once "./class/db.php";
 
 $pdo = getConnection(); // ok
 $tipo_lista = $pdo->query("SELECT * FROM tipos");
