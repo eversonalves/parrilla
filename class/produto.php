@@ -1,11 +1,12 @@
-<?php 
+<?php
 
-namespace App;
+
 
 include_once "db.php";
 
 
-class Produto{
+class Produto
+{
 
     // Atributos da class Produto.
 
@@ -18,100 +19,116 @@ class Produto{
     private $destaque;
 
     private $pdo;
-    public function __construct(){
+    public function __construct()
+    {
         $this->pdo = getConnection(); // Realiza a conexão durante a criação da instancia ( objeto ).
     }
-    
+
     // Getters e Setters - Propriedades (C#) ou metodos de acesso das linguagens de progamação.
-    
-    public function getId(){
+
+    public function getId()
+    {
         return $this->id;
     }
-        
-    public function getTipoId(){
+
+    public function getTipoId()
+    {
         return $this->tipoId;
     }
 
-    public function setTipoId(int $tipoId){
+    public function setTipoId(int $tipoId)
+    {
         $this->tipoId = $tipoId;
     }
 
-    public function getDescricao(){
+    public function getDescricao()
+    {
         return $this->descricao;
     }
 
-    public function setDescricao(string $descricao){
+    public function setDescricao(string $descricao)
+    {
         $this->descricao = $descricao;
     }
 
-    public function getResumo(){
+    public function getResumo()
+    {
         return $this->resumo;
     }
 
-    public function setResumo(string $resumo){
+    public function setResumo(string $resumo)
+    {
         $this->resumo = $resumo;
     }
 
-    public function getValor(){
+    public function getValor()
+    {
         return $this->valor;
     }
 
-    public function setValor(float $valor){
+    public function setValor(float $valor)
+    {
         $this->valor = $valor;
     }
 
-    public function getImagem(){
+    public function getImagem()
+    {
         return $this->imagem;
     }
 
-    public function setImagem(string $imagem){
+    public function setImagem(string $imagem)
+    {
         $this->imagem = $imagem;
     }
 
-    public function getDestaque(){
+    public function getDestaque()
+    {
         return $this->destaque;
     }
 
-    public function setDestaque($destaque){
+    public function setDestaque($destaque)
+    {
         $this->destaque = $destaque;
     }
 
-        
-        
+
+
     // Inserindo um Produtos.
-        
-    public function inserir():bool{
-        $sql = "INSERT INTO produtos (tipo_id, descricao, resumo, valor, imagem, destaque) VALUES (:tipo_id, :descricao, :resumo, :valor, :imagem, ".($this->destaque==true?1:0).")";
+
+    public function inserir(): bool
+    {
+        $sql = "INSERT INTO produtos (tipo_id, descricao, resumo, valor, imagem, destaque) VALUES (:tipo_id, :descricao, :resumo, :valor, :imagem, " . ($this->destaque == true ? 1 : 0) . ")";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":tipo_id", $this->tipoId);
         $cmd->bindValue(":descricao", $this->descricao);
         $cmd->bindValue(":resumo", $this->resumo);
         $cmd->bindValue(":valor", $this->valor);
         $cmd->bindValue(":imagem", $this->imagem);
-        if($cmd->execute()){
+        if ($cmd->execute()) {
             $this->id = $this->pdo->lastInsertId();   // ( lastInsertId ) Retorna o ultimo Id inserido.
             return true;
         }
         return false;
     }
-        
-        
+
+
     // Listando Produtos.
-        
-    public function listar(int $destaque = 0):array{
-        if($destaque == 0){
+
+    public function listar(int $destaque = 0): array
+    {
+        if ($destaque == 0) {
             $cmd = $this->pdo->query("SELECT * FROM vw_produtos ORDER BY id DESC");
-        }
-        elseif ($destaque == 1){
+        } elseif ($destaque == 1) {
             $cmd = $this->pdo->query("SELECT * FROM vw_produtos WHERE destaque = 1 ORDER BY id DESC");
         }
         return $cmd->fetchAll();
     }
-        
-        
+
+
     // Buscando por ID.
-        
-    public function buscarPorId(int $id):array{
+
+    public function buscarPorId(int $id): array
+    {
         $sql = "SELECT * FROM vw_produtos WHERE id = :id";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":id", $id);
@@ -133,26 +150,28 @@ class Produto{
 
 
     // Buscando produto por tipo_id.
-        
-    public function buscarPorTipoId(int $tipoId):array{
+
+    public function buscarPorTipoId(int $tipoId): array
+    {
         $sql = "SELECT * FROM vw_produtos WHERE tipo_id = :tipo_id";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":tipo_id", $tipoId);
         $cmd->execute();
         $dados = $cmd->fetchAll();
-  
+
         return $dados;
     }
 
 
     // Buscando produto por texto na descrição ou no resumo.
-        
-    public function buscarPorString(string $busca):array{
+
+    public function buscarPorString(string $busca): array
+    {
         $sql = "SELECT * FROM vw_produtos WHERE resumo LIKE '%$busca%' OR resumo LIKE '%$busca%'";
         $cmd = $this->pdo->prepare($sql);
         $cmd->execute();
         $dados = $cmd->fetchAll();   // Pode retorna um ou mais produtos.
-  
+
         return $dados;
     }
 
@@ -160,17 +179,18 @@ class Produto{
 
     // Atualizar Produtos.
 
-    public function atualizar(int $idUpdate):bool{
+    public function atualizar(int $idUpdate): bool
+    {
         $this->id = $idUpdate;
-        if(!$this->id) return false;
-        
+        if (!$this->id) return false;
+
         $sql = "UPDATE produtos SET
         tipo_id = :tipo_id,
         descricao = :descricao,
         resumo = :resumo,
         valor = :valor,
         imagem = :imagem,
-        destaque = ".($this->destaque==true?1:0)."
+        destaque = " . ($this->destaque == true ? 1 : 0) . "
         WHERE id = :id";
         $cmd = $this->pdo->prepare($sql);
         $cmd->bindValue(":tipo_id", $this->tipoId);
@@ -188,9 +208,10 @@ class Produto{
     // Excluir usuário.
 
 
-    public function excluir(int $idExcluir):bool{
+    public function excluir(int $idExcluir): bool
+    {
         $this->id = $idExcluir;
-        if(!$this->id) return false;
+        if (!$this->id) return false;
 
         $sql = "DELETE FROM produtos WHERE id = :id";
         $cmd = $this->pdo->prepare($sql);
@@ -198,7 +219,6 @@ class Produto{
 
         return $cmd->execute();
     }
-
 }
 
 ?>

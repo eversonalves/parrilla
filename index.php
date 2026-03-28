@@ -38,7 +38,7 @@
 
     <!-- Área de menu -->
 
-    <?php include "menu_publico.php"?>
+    <?php include "menu_publico.php" ?>
 
   </header>
 
@@ -46,24 +46,26 @@
 
     <!-- Área carousel (inclui uma sessão HTML) -->
 
-    <?php include "carousel.php"?>
+    <?php include "carousel.php" ?>
 
     <!-- Área de reservas -->
 
-    <?php include "reservas.php"?>
+    <?php include "reservas.php" ?>
 
     <!-- Área  destaque -->
 
     <a class="pt-6" name="destaques">&nbsp;</a>
 
-    <?php include "destaques.php"?>
+    <?php
+    include "destaques.php"
+    ?>
 
 
     <!-- Área geral de produtos -->
 
     <a class="pt-6" name="produtos">&nbsp;</a>
 
-    <?php include "produtos_geral.php"?>
+    <?php include "produtos_geral.php" ?>
 
 
   </main>
@@ -74,7 +76,7 @@
 
     <a name="contato"></a>
 
-    <?php include "rodape.php"?>
+    <?php include "rodape.php" ?>
 
   </footer>
 
